@@ -27,8 +27,7 @@ export const handleLogin = ({ username, password }) => {
       'Content-Type': 'text/plain'
     });
 
-    
-    fetch('http://localhost:8080/user/' + username,{method: 'get', 
+    fetch('http://172.10.0.133:5001/user/' + username,{method: 'get', 
     headers: myHeaders})
     .then(
       function(response) {
