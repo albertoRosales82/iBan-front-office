@@ -27,9 +27,10 @@ class Login extends React.Component {
     }
 
     return (
-      <div className="modal-dialog text-center ">
-        <div className="col-sm-8 main-section">
-          <div className="modal-content">
+
+      <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+          <div class="modal-content">
             <div>
             <div className="col-12 user-img">
                     <img src={administrator}  style={{marginLeft:"50%"}}/>
@@ -41,7 +42,7 @@ class Login extends React.Component {
                 navigate(`/app/login/profile`)
               }}
             >
-             <div class="form-group" id="user-group">
+            <div class="form-group" id="user-group">
               <label >
                 
                 <input   style={{marginLeft:"45%"}} class="form-control" type="text" name="username" onChange={this.handleUpdate}  placeholder="nombre de usuario"/>
@@ -68,6 +69,7 @@ class Login extends React.Component {
     </div>
   </div>
 </div>
+
     )
   }
 }
