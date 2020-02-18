@@ -27,12 +27,12 @@ class Login extends React.Component {
     }
 
     return (
-      <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-          <div class="modal-content">
+      <div className="modal-dialog text-center ">
+        <div className="col-sm-8 main-section">
+          <div className="modal-content">
             <div>
-            <div class="col-12 user-img">
-                    <img src={administrator} />
+            <div className="col-12 user-img">
+                    <img src={administrator}  style={{marginLeft:"50%"}}/>
                 </div>
             <form class="col-12"
               method="post"
@@ -44,7 +44,7 @@ class Login extends React.Component {
              <div class="form-group" id="user-group">
               <label >
                 
-                <input  class="form-control" type="text" name="username" onChange={this.handleUpdate}  placeholder="nombre de usuario"/>
+                <input   style={{marginLeft:"45%"}} class="form-control" type="text" name="username" onChange={this.handleUpdate}  placeholder="nombre de usuario"/>
               </label>
               </div>
               
@@ -52,6 +52,7 @@ class Login extends React.Component {
               <label>
                 
                 <input
+                style={{marginLeft:"45%"}}
                   class="form-control"
                   placeholder="contraseña"
                   type="password"
@@ -60,7 +61,7 @@ class Login extends React.Component {
                 />
               </label>
               </div>
-              <input  className="btn" type="submit" value="Log In" />
+              <input style={{marginLeft:"50%"}} className="btn " type="submit" value="Log In" />
             </form>
             
       </div>
