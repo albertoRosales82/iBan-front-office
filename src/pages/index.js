@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 
 export default () => (
   <Layout>
-    <h1>Hello {isLoggedIn() ? getUser().name : "world"}!</h1>
+    <h1>Hello {isLoggedIn() ? getUser().names : "world"}!</h1>
     <p>
       {isLoggedIn() ? (
         <>

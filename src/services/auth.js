@@ -1,6 +1,4 @@
-import React from'react';
-import { render } from 'react-dom';
-import User from '../components/user';
+
 export var state = {
   appUser: []
 };
@@ -11,37 +9,42 @@ export const getUser = () =>
     ? JSON.parse(window.localStorage.getItem("gatsbyUser"))
     : {}
 
-const setUser = user =>
-  window.localStorage.setItem("iwarm2020", JSON.stringify(user))
+const setUser = user =>  
+  window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
+  
 
 const setState = state => 
   window.localStorage.setItem("state", JSON.stringify(state))
 
 export const handleLogin = ({ username, password }) => {
   
-  if (password === `1`) {
+  if (password === ``) {
 
     var myHeaders = new Headers({
       'Accept': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'text/plain'
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
     });
 
     
-    fetch('http://localhost:8080/user/' + username,{method: 'get', 
-    headers: myHeaders})
+    fetch('http://localhost:5001/user/' + username,{
+      method: 'get'
+      
+    })
     .then(
       function(response) {
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' +
             response.status);
           return;
-        }
+        }else{
         // Examine the text in the response
         response.json().then(function(data) {
           console.log(data);
-          document.write(data.users.names + " " + data.users.fathersLastName + " " + data.users.mothersLastName + "|" + data.users.email+ "|"+data.countries.name + "|" + data.countries.badges.name);
-        });
+          //document.write(data.users.names + " " + data.users.fathersLastName + " " + data.users.mothersLastName + "|" + data.users.email+ "|"+data.countries.name + "|" + data.countries.badges.name);
+          setUser(data.users)
+        }); 
+      }
       }
     )
     .catch(function(err) {
@@ -59,7 +62,7 @@ return true
 export const isLoggedIn = () => {
   const user = getUser()
 
-  return !!user.username
+  return !!user.iduser
 }
 
 export const logout = callback => {

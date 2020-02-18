@@ -31,13 +31,14 @@ class Login extends React.Component {
           method="post"
           onSubmit={event => {
             this.handleSubmit(event)
-            navigate(`/app/login/profile`)
+            navigate(`/app/user`)
           }}
         >
           <label>
             Username
             <input type="text" name="username" onChange={this.handleUpdate} />
           </label>
+          <br></br>
           <label>
             Password
             <input

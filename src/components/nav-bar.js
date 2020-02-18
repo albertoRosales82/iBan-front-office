@@ -5,7 +5,7 @@ import { getUser, isLoggedIn, logout } from "../services/auth"
 export default () => {
   const content = { message: "", login: true }
   if (isLoggedIn()) {
-    content.message = `Hello, ${getUser().name}`
+    content.message = `Hello, ${getUser().names}`
   } else {
     content.message = "You are not logged in"
   }
@@ -22,6 +22,8 @@ export default () => {
       <nav>
         <Link to="/">Home</Link>
         {` `}
+        <Link to="/app/createLoan">CreateLoan</Link>
+        {` `}
         <Link to="/app/profile">Profile</Link>
         {` `}
         {isLoggedIn() ? (
@@ -30,8 +32,7 @@ export default () => {
             onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/app/login`))
-            }}
-          >
+            }}>
             Logout
           </a>
         ) : null}

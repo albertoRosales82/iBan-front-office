@@ -1,0 +1,41 @@
+/* @import '../../styles/mixin.scss';
+
+input, textarea{
+    padding-bottom: 0.5rem!important;
+    border: 0px!important;
+    border-bottom: solid 1px $color-blue!important;
+    border-bottom-left-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    letter-spacing: 1px!important;
+    font-size: 15px!important;
+    &.blue{
+        color: $color-blue!important;
+        font-weight: bold!important;
+        &::placeholder{
+            color: $color-blue!important;
+            font-weight: bold!important;
+        }
+    }
+    &:not(.blue){
+        color: $color-dark!important;
+        font-weight: normal!important;
+        &::placeholder{
+            color: $color-dark!important;
+            font-weight: bold!important;
+        }
+    }
+    @media (max-width: $lg){
+        text-align: center;
+        margin-top: 1rem;
+    }
+    &::placeholder{
+        letter-spacing: 2px!important;
+        font-size: 12px;
+    }
+    &:focus{
+        outline: none!important;
+    }
+}
+.modal-dialog {
+    max-width: 800px !important;
+} */
