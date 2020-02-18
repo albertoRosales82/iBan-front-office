@@ -26,16 +26,8 @@ export const handleLogin = ({ username, password }) => {
             'Content-Type': 'application/json'
     });
 
-<<<<<<< HEAD
-    
-    fetch('http://localhost:5001/user/' + username,{
-      method: 'get'
-      
-    })
-=======
     fetch('http://172.10.0.133:5001/user/' + username,{method: 'get', 
     headers: myHeaders})
->>>>>>> 3eecc6820651ba718524f1545665ce52b523a31c
     .then(
       function(response) {
         if (response.status !== 200) {

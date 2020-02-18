@@ -1,6 +1,70 @@
 body{
-    background: url(../images/656670.jpg) no-repeat center center fixed;
+    background-color: #f8f9fa;
+    /*background: url(../images/backgrounf-office-mac.jpg) no-repeat center center fixed;*/
     background-size: cover;
+}
+
+.divContainer{
+    background-color: #CFD9F0;
+    text-align: center;
+    margin-top: 2em;
+    padding: 5em;
+    padding-bottom:2em;
+    margin-left: 16em;
+    margin-right: 16em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 1em;
+    }
+
+.imgAdmon{
+    width: 150px;
+}
+
+.textLogIn{
+    background-color: #2b4957;
+    width: 43em;
+    padding: 1em;
+    position: absolute;
+    top:7em;
+    left: 16em;
+    font-size: 1em;
+    text-align: left;
+    color:white
+    
+}
+
+.inputName{
+    width: 500px;
+    padding: 0.5em;
+}
+.inputPassword{
+    width: 500px;
+    padding: 0.5em;
+    margin-top: 2em;
+    
+}
+
+.buttonLogIn{
+    background-color: #2b4957;
+    margin-top: 1em;
+    color: cornsilk;
+
+}
+
+.textName{
+    text-align: left;
+    position: absolute;
+    top:25em;
+    left: 31em;
+
+}
+
+.textPassword{
+    text-align: left;
+    position: absolute;
+    top:31em;
+    left: 31em;
+
 }
 
 .main-section{
@@ -10,19 +74,20 @@ body{
 }
 
 .modal-content{
-    background-color: #3b4652;
+    background-color: #CFD9F0;
     opacity: .85;
     padding: 0 0rem;
     box-shadow: 0px 0px px #848484;
     
 }
 .user-img{
-    margin-top: -50px;
+    margin-top: -70px;
     margin-bottom: 35px;
+    margin-left: 35em;
 }
 
 .user-img img{
-    width: 100xp;
+    width: 100px;
     height: 100px;
     box-shadow: 0px 0px 3px #848484;
     border-radius: 50%;

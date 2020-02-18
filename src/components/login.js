@@ -25,51 +25,43 @@ class Login extends React.Component {
     if (isLoggedIn()) {
       navigate(`/app/profile`)
     }
-
     return (
-
-      <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-          <div class="modal-content">
-            <div>
-            <div className="col-12 user-img">
-                    <img src={administrator}  style={{marginLeft:"50%"}}/>
-                </div>
-            <form class="col-12"
+            
+          <div className="divContainer">
+            <img src={administrator} alt="Logo" className="imgAdmon" />
+            <div className="divLogIn">
+              <h1 className="textLogIn">Inicio de sesion</h1>
+            </div>
+            <form
               method="post"
               onSubmit={event => {
                 this.handleSubmit(event)
                 navigate(`/app/login/profile`)
               }}
             >
-            <div class="form-group" id="user-group">
-              <label >
-                
-                <input   style={{marginLeft:"45%"}} class="form-control" type="text" name="username" onChange={this.handleUpdate}  placeholder="nombre de usuario"/>
-              </label>
-              </div>
-              
-              <div class="form-group" id="contrasena-group">
+            <div>
+            
               <label>
-                
-                <input
-                style={{marginLeft:"45%"}}
-                  class="form-control"
-                  placeholder="contraseña"
+              <h6 className="textName">Usuario</h6>
+                <Input className="inputName"  type="text" name="username" onChange={this.handleUpdate}  placeholder="Nombre de usuario"/>
+              </label>
+            </div>
+            <div>
+            
+              <label>
+              <h6 className="textPassword">Contraseña</h6>
+                <Input className="inputPassword my-5"
+                  placeholder="Contraseña"
                   type="password"
                   name="password"
                   onChange={this.handleUpdate}
                 />
               </label>
-              </div>
-              <input style={{marginLeft:"50%"}} className="btn " type="submit" value="Log In" />
+              
+            </div>
+                <Input className="buttonLogIn"  type="submit" value="Entrar" />
             </form>
-            
-      </div>
-    </div>
-  </div>
-</div>
-
+          </div>
     )
   }
 }
