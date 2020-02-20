@@ -59,7 +59,7 @@ class Login extends React.Component {
               </label>
               
             </div>
-                <Input className="buttonLogIn"  type="submit" value="Entrar" />
+                <Input className="buttonLogIn p-0 m-0 mx-auto"  type="submit" value="Entrar" />
             </form>
           </div>
     )

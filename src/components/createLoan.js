@@ -101,8 +101,8 @@ class CrateLoan extends React.Component {
 
         return (
             <>
-                <Row>
-                    <Col>
+                <Row className="p-0 m-0 mx-auto" >
+                    <Col  className=" d-flex justify-content-center flex-column">
                 <div className="formTitle" >
                     
                     <h3>Crear Prestamo</h3>
@@ -114,8 +114,8 @@ class CrateLoan extends React.Component {
                         navigate(`/app/loanData`)
                     }}>
                     <FormGroup  className="backgroundform" >
-                        <Row>
-                            <Col md="6">
+                        <Row className=" d-flex justify-content-center">
+                            <Col md="6" >
                         <div>
                         <p className="textInteres">
                                 Interes anual
@@ -335,9 +335,9 @@ class CrateLoan extends React.Component {
                     value='72' />
                     </div>
                     </Col>
-                    <div className="mx-auto">
-                    <Input type="submit" value="Crear Prestamo" />
-                    </div>
+                            <div className="btnCrearPrestamo">
+                                <Input  type="submit" value="Crear Prestamo" />
+                            </div>
                     </Row>
                     </FormGroup>
                 </Form>

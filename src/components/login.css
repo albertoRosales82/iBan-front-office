@@ -22,7 +22,7 @@ body{
 
 .textLogIn{
     background-color: #2b4957;
-    width: 43em;
+    width: 53.3em;
     padding: 1em;
     position: absolute;
     top:7em;
@@ -48,22 +48,23 @@ body{
     background-color: #2b4957;
     margin-top: 1em;
     color: cornsilk;
+    width: 6em;
 
 }
 
 .textName{
     text-align: left;
     position: absolute;
-    top:25em;
-    left: 31em;
+    top:18em;
+    left: 28em;
 
 }
 
 .textPassword{
     text-align: left;
     position: absolute;
-    top:31em;
-    left: 31em;
+    top:24em;
+    left: 28em;
 
 }
 
