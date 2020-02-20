@@ -15,17 +15,15 @@ export const handleCreateLoan = (loan) => {
 
     if (loan !== null) {
 
-        var myHeaders = new Headers({
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'text/plain'
-          });
+        var clientHeaders = new Headers({
+            'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST'
+        });
 
 
-        fetch('http://localhost:5002/loans', {   
+        fetch('http://localhost:5002/loans', {
             method: 'post',
             body: JSON.stringify(loan),
-            headers:{'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST'}
+            headers: { clientHeaders }
         })
             .then(
                 function (response) {

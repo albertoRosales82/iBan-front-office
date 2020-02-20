@@ -52,8 +52,13 @@ export default () => {
           <NavItem>
               <NavLink href="/" className="navLinks">Dashboard</NavLink>
             </NavItem>
+
             <NavItem>
-              <NavLink href="/app/createLoan" className="navLinks">CreateLoan</NavLink>
+              <NavLink href="/app/createLoan" className="navLinks">Alta de pr&eacute;stamo</NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="/app/getLoanFees" className="navLinks">Consulta de cuotas</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/app/profile" className="navLinks">Profile</NavLink>
