@@ -1,16 +1,17 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-
+import {Table} from 'reactstrap'
+import './getFeePaymentsService.css';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
+{/*import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';*/}
 
-import { navigate } from "gatsby"
+
 
 export const getFeePayments = (idLoan, idFee) => {
 
@@ -21,7 +22,7 @@ export const getFeePayments = (idLoan, idFee) => {
         });
 
         setRows([])
-        fetch('http://172.10.0.113:5002/loans/'+idLoan+'/fees/'+idFee, {
+        fetch('http://172.10.0.133:5002/loans/'+idLoan+'/fees/'+idFee, {
             method: 'get',
             headers: clientHeaders
         })
@@ -40,33 +41,33 @@ export const getFeePayments = (idLoan, idFee) => {
                             });
 
                             const table = (
-                                <TableContainer component={Paper}>
-                                    <Table style={{'width': '650px'}} aria-label="simple table">
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell align="right">#</TableCell>
-                                                <TableCell align="right">Fecha</TableCell>
-                                                <TableCell align="right">Tipo</TableCell>
-                                                <TableCell align="right">Monto</TableCell>
-                                                <TableCell align="right">Estatus</TableCell>
+                                <Table size="md" hover bordered responsive>
+                                    
+                                    <thead>
+                                            <tr>
+                                                <th className="titlesCuo" align="right">#</th>
+                                                <th className="titlesCuo" align="right">Fecha</th>
+                                                <th className="titlesCuo" align="right">Tipo</th>
+                                                <th className="titlesCuo" align="right">Monto</th>
+                                                <th className="titlesCuo" align="right">Estatus</th>
                                                 
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody id="tableBodyId">
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             {rows.map(row => (
-                                                <TableRow key={row.idPayment}>
-                                                    <TableCell align="right" component="th" scope="row">
+                                                <tr key={row.idPayment}>
+                                                    <th className="titlesCuo" align="right" component="th" scope="row">
                                                         {row.idPayment}
-                                                    </TableCell>
-                                                    <TableCell align="right">{row.paymentdate}</TableCell>
-                                                    <TableCell align="right">{row.typePayment===0?'Abono':'Cargo'}</TableCell>
-                                                    <TableCell align="right">{row.paymentAmount}</TableCell>
-                                                    <TableCell align="right">{row.idStatus}</TableCell>
-                                                </TableRow>
+                                                    </th>
+                                                    <th className="subtitleCuo" align="right">{row.paymentdate}</th>
+                                                    <th className="subtitleCuo" align="right">{row.typePayment===0?'Abono':'Cargo'}</th>
+                                                    <th className="subtitleCuo" align="right">{row.paymentAmount}</th>
+                                                    <th className="subtitleCuo" align="right">{row.idStatus}</th>
+                                                </tr>
                                             ))}
-                                        </TableBody>
+                                        </tbody>
                                     </Table>
-                                </TableContainer>
+                                
                             );
                             ReactDOM.render(
                                 table,

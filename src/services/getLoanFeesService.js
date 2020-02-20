@@ -1,21 +1,24 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
+import {Table,Dropdown,DropdownToggle,DropdownMenu,DropdownItem,dropdownOpen,toggle} from 'reactstrap';
+import { navigate } from "gatsby"
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import './getLoanFeesService.css';
 
-import { makeStyles } from '@material-ui/core/styles';
+{/*import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';*/}
 
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
-import { navigate } from "gatsby"
+
 
 
 export const setIdLoan = idLoan =>
@@ -46,7 +49,7 @@ export const handleGetLoanFees = () => {
         });
 
         setRows([])
-        fetch('http://172.10.0.113:5002/loans/' + window.localStorage.getItem("idLoanItem") + '/fees', {
+        fetch('http://172.10.0.133:5002/loans/' + window.localStorage.getItem("idLoanItem") + '/fees', {
             method: 'get',
             headers: clientHeaders
         })
@@ -64,47 +67,47 @@ export const handleGetLoanFees = () => {
                             feesList.forEach(fee => {
                                 rows.push(createData(fee.idFee, fee.expectedDate, fee.pendingAmount, fee.interest, fee.feeAmount, fee.insuranceFee, fee.lifeInsuranceFee, fee.managementExpensesFee, fee.periodTaxes, fee.feeWithoutTaxes, fee.feeWithTaxes, fee.contractValue))
                             });
-
                             const table = (
-                                <TableContainer component={Paper}>
-                                    <Table style={{'width': '650px'}} aria-label="simple table">
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell align="right">#</TableCell>
-                                                <TableCell align="right">Fecha</TableCell>
-                                                <TableCell align="right">Monto Pendiente</TableCell>
-                                                <TableCell align="right">Interes</TableCell>
-                                                <TableCell align="right">Monto pagado</TableCell>
-                                                <TableCell align="right">Seguro de daños</TableCell>
-                                                <TableCell align="right">Seguro de vida</TableCell>
-                                                <TableCell align="right">Gastos de administraci&oacute;n</TableCell>
-                                                <TableCell align="right">IVA</TableCell>
-                                                <TableCell align="right">Cuota S/IVA</TableCell>
-                                                <TableCell align="right">Cuota C/IVA</TableCell>
-                                                <TableCell align="right">Valor del contrato</TableCell>
-                                                <TableCell align="right">Acci&oacute;n</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody id="tableBodyId">
+                                
+                                <Table hover bordered responsive>
+                                        <thead>
+                                            <tr >
+                                                <th className="titlesConsul" align="right">#</th>
+                                                <th className="titlesConsul" align="right">Fecha</th>
+                                                <th className="titlesConsul" align="right">Monto Pendiente</th>
+                                                <th className="titlesConsul" align="right">Interes</th>
+                                                <th className="titlesConsul" align="right">Monto pagado</th>
+                                                <th className="titlesConsul" align="right">Seguro de daños</th>
+                                                <th className="titlesConsul" align="right">Seguro de vida</th>
+                                                <th className="titlesConsul" align="right">Gastos de administraci&oacute;n</th>
+                                                <th className="titlesConsul" align="right">IVA</th>
+                                                <th className="titlesConsul" align="right">Cuota S/IVA</th>
+                                                <th className="titlesConsul" align="right">Cuota C/IVA</th>
+                                                <th className="titlesConsul" align="right">Valor del contrato</th>
+                                                <th className="titlesConsul" align="right">Acci&oacute;n</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             {rows.map(row => (
-                                                <TableRow key={row.idFee}>
-                                                    <TableCell align="right" component="th" scope="row">
+                                                <tr key={row.idFee}>
+                                                    <td align="right" component="th" scope="row">
                                                         {row.idFee}
-                                                    </TableCell>
-                                                    <TableCell align="right">{row.expectedDate}</TableCell>
-                                                    <TableCell align="right">{row.pendingAmount}</TableCell>
-                                                    <TableCell align="right">{row.interest}</TableCell>
-                                                    <TableCell align="right">{row.feeAmount}</TableCell>
-                                                    <TableCell align="right">{row.insuranceFee}</TableCell>
-                                                    <TableCell align="right">{row.lifeInsuranceFee}</TableCell>
-                                                    <TableCell align="right">{row.managementExpensesFee}</TableCell>
-                                                    <TableCell align="right">{row.periodTaxes}</TableCell>
-                                                    <TableCell align="right">{row.feeWithoutTaxes}</TableCell>
-                                                    <TableCell align="right">{row.feeWithTaxes}</TableCell>
-                                                    <TableCell align="right">{row.contractValue}</TableCell>
-                                                    <TableCell align="right"> 
+                                                    </td>
+                                                    <td align="right">{row.expectedDate}</td>
+                                                    <td align="right">{row.pendingAmount}</td>
+                                                    <td align="right">{row.interest}</td>
+                                                    <td align="right">{row.feeAmount}</td>
+                                                    <td align="right">{row.insuranceFee}</td>
+                                                    <td align="right">{row.lifeInsuranceFee}</td>
+                                                    <td align="right">{row.managementExpensesFee}</td>
+                                                    <td align="right">{row.periodTaxes}</td>
+                                                    <td align="right">{row.feeWithoutTaxes}</td>
+                                                    <td align="right">{row.feeWithTaxes}</td>
+                                                    <td align="right">{row.contractValue}</td>
+                                                    <td align="right">
+                                                    
                                                     <FormControl>
-                                                            <InputLabel id="demo-simple-select-label">Quiero</InputLabel>
+                                                            <InputLabel id="demo-simple-select-label"></InputLabel>
                                                             <Select
                                                             labelId="demo-simple-select-label"
                                                             id="id"
@@ -113,13 +116,13 @@ export const handleGetLoanFees = () => {
                                                             <MenuItem value={1}>Detalle</MenuItem>
                                                             <MenuItem value={2}>Pagar</MenuItem>
                                                             </Select>
-                                                        </FormControl>
-                                                    </TableCell>
-                                                </TableRow>
+                                                    </FormControl>
+                                                    </td>
+                                                </tr>
                                             ))}
-                                        </TableBody>
+                                        </tbody>
                                     </Table>
-                                </TableContainer>
+                                
                             );
                             ReactDOM.render(
                                 table,

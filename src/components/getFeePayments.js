@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, FormGroup, Input, FormFeedback } from "reactstrap"
 
 import { getFeePayments } from "../services/getFeePaymentsService"
-
+import "./getFeePayments.css"
 class FeePayments extends React.Component {
     state = {
       idFee: ``,
@@ -24,7 +24,7 @@ class FeePayments extends React.Component {
       
       return (
               <>
-              <h1>Pagos de una cuota</h1>
+              <h1 className="titlesPagosCuo">Pagos de una cuota</h1>
             <div id="paymentsTable">
             </div>
             </>
