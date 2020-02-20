@@ -1,11 +1,12 @@
 import React from 'react'
 import {getLoan} from "../services/createLoanService"
+import "./loanData.css"
 
 
 const LoanData = () => {
     return (
       <div>
-        <center><h1>Detalle del prestamo</h1></center>
+        <center><h1 className="formTitle">Detalle del prestamo</h1></center>
         
           <div className="card">
             <div className="card-body">

@@ -6,6 +6,7 @@ import { handleGetLoanFees,  setIdLoan, rows} from "../services/getLoanFeesServi
 
 import styles from "./form.module.scss"
 import StylesForm from "./form.scss"
+import "./getLoanFees.css"
 
 const handleUpdate = event => {
     setIdLoan(event.target.value)
@@ -21,17 +22,17 @@ export default function LoanFees(){
 
         return (
             <>
-        <h1>Consulta de cuotas de un pr&eacute;stamo</h1>
+        <h1 className="formTitle">Consulta de cuotas de un pr&eacute;stamo</h1>
 
             <Form method="post"
                 onSubmit={event => {
                     handleSubmit(event)
                     //navigate(`/app/getLoanFees`)//<----------------------------------------------
                 }}>
-                <FormGroup className={"d-lg-flex mb-0 mb-lg-0 py-0 py-lg-3 px-3 "}>
-                    <div className={styles.halfInput + " mr-lg-2"}>
+                <FormGroup >
+                    <div >
                         {/**Loan Number*/}
-                        <Input type="text" name="loanNumber" onChange={handleUpdate}
+                        <Input className="inputConsulta mx-auto" type="text" name="loanNumber" onChange={handleUpdate}
                             cssModule={StylesForm}
                             required
                             id="loanNumber"
@@ -41,7 +42,7 @@ export default function LoanFees(){
                 </FormGroup>
                 
                     <br></br>
-                    <Input type="submit" value="Consultar Cuotas" />
+                    <Input className="btnInputConsult mx-auto" type="submit" value="Consultar Cuotas" />
                     <br></br>
             </Form>
 {/**--------------------------TABLE------------------------- */}

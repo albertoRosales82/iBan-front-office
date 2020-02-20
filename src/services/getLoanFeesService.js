@@ -46,7 +46,7 @@ export const handleGetLoanFees = () => {
         });
 
         setRows([])
-        fetch('http://localhost:5002/loans/' + window.localStorage.getItem("idLoanItem") + '/fees', {
+        fetch('http://172.10.0.113:5002/loans/' + window.localStorage.getItem("idLoanItem") + '/fees', {
             method: 'get',
             headers: clientHeaders
         })

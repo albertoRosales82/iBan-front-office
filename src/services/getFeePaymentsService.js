@@ -21,7 +21,7 @@ export const getFeePayments = (idLoan, idFee) => {
         });
 
         setRows([])
-        fetch('http://localhost:5002/loans/'+idLoan+'/fees/'+idFee, {
+        fetch('http://172.10.0.113:5002/loans/'+idLoan+'/fees/'+idFee, {
             method: 'get',
             headers: clientHeaders
         })

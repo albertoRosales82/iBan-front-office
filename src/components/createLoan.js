@@ -335,8 +335,8 @@ class CrateLoan extends React.Component {
                     value='72' />
                     </div>
                     </Col>
-                            <div className="btnCrearPrestamo">
-                                <Input  type="submit" value="Crear Prestamo" />
+                            <div className="divBtnCrearPrestamo">
+                                <Input className="btnInputCrearPrest" type="submit" value="Crear Prestamo" />
                             </div>
                     </Row>
                     </FormGroup>

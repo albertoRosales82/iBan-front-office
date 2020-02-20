@@ -1,11 +1,16 @@
 import React, {useState} from "react"
 import { Link, navigate } from "gatsby"
 import { getUser, isLoggedIn, logout } from "../services/auth"
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap'
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,Modal,DropdownMenu,DropdownItem,Dropdown,DropdownToggle} from 'reactstrap'
 import './nav-bar.css';
 
 
 export default () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(!dropdownOpen);
+
+
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
@@ -43,22 +48,31 @@ export default () => {
         ) : null}
       </nav>
       <div>*/
-      <Navbar  color="faded" light  className="navBar">
-      <span className="navLinks">{content.message}</span>
+      <Navbar  color="transparent" light  className="navBar">
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <NavbarBrand href="/" className="mr-auto">logo</NavbarBrand>
+        <span className="navLinks">{content.message}</span>
         <Collapse isOpen={!collapsed} navbar >
-          <Nav navbar>
+          <Nav navbar >
           <NavItem>
               <NavLink href="/" className="navLinks">Dashboard</NavLink>
             </NavItem>
-
+            <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle nav caret>
+            Prestamos
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem href="/app/createLoan" className="navLinks">Alta de prestamos</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem href="/app/getLoanFees" className="navLinks">Consulta de cuotas</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
             <NavItem>
-              <NavLink href="/app/createLoan" className="navLinks">Alta de pr&eacute;stamo</NavLink>
+              <NavLink disabled href="/app/createLoan" className="navLinks">Alta de pr&eacute;stamo</NavLink>
             </NavItem>
 
             <NavItem>
-              <NavLink href="/app/getLoanFees" className="navLinks">Consulta de cuotas</NavLink>
+              <NavLink disabled href="/app/getLoanFees" className="navLinks">Consulta de cuotas</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/app/profile" className="navLinks">Profile</NavLink>

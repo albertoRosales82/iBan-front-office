@@ -20,7 +20,7 @@ export const handleCreateLoan = (loan) => {
         });
 
 
-        fetch('http://localhost:5002/loans', {
+        fetch('http://172.10.0.113:5002/loans', {
             method: 'post',
             body: JSON.stringify(loan),
             headers: { clientHeaders }
