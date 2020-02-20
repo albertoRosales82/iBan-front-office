@@ -43,20 +43,20 @@ export default () => {
         ) : null}
       </nav>
       <div>*/
-      <Navbar color="faded" light>
+      <Navbar  color="faded" light  className="navBar">
       <span className="navLinks">{content.message}</span>
-        <NavbarBrand href="/" className="mr-auto"></NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar>
+        <NavbarBrand href="/" className="mr-auto">logo</NavbarBrand>
+        <Collapse isOpen={!collapsed} navbar >
           <Nav navbar>
           <NavItem>
-              <NavLink href="/">Dashboard</NavLink>
+              <NavLink href="/" className="navLinks">Dashboard</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/app/createLoan">CreateLoan</NavLink>
+              <NavLink href="/app/createLoan" className="navLinks">CreateLoan</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/app/profile">Profile</NavLink>
+              <NavLink href="/app/profile" className="navLinks">Profile</NavLink>
             </NavItem>
             {isLoggedIn() ? (
           <a

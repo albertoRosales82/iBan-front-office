@@ -8,10 +8,10 @@ body{
     background-color: #CFD9F0;
     text-align: center;
     margin-top: 2em;
-    padding: 5em;
+    padding: 3em;
     padding-bottom:2em;
-    margin-left: 16em;
-    margin-right: 16em;
+    margin-left: 18em;
+    margin-right: 18em;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 1em;
     }
@@ -22,25 +22,26 @@ body{
 
 .textLogIn{
     background-color: #2b4957;
-    width: 53.3em;
-    padding: 1em;
-    position: absolute;
-    top:7em;
+    width: 100%;
+    padding: 0.3em;
+    /*position: absolute;
+    top:15em;
     left: 16em;
     font-size: 1em;
     text-align: left;
-    color:white
+    color:white*/
     
 }
 
 .inputName{
     width: 500px;
     padding: 0.5em;
+    margin-top: 0.5em;
 }
 .inputPassword{
     width: 500px;
     padding: 0.5em;
-    margin-top: 2em;
+    margin-top: 0.5em;
     
 }
 
@@ -52,21 +53,21 @@ body{
 
 }
 
-.textName{
+/*.textName{
     text-align: left;
     position: absolute;
     top:18em;
     left: 28em;
 
-}
+}*/
 
-.textPassword{
+/*.textPassword{
     text-align: left;
     position: absolute;
     top:24em;
     left: 28em;
 
-}
+}*/
 
 /*.main-section{
     margin:0 auto;

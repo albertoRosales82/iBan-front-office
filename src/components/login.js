@@ -26,12 +26,12 @@ class Login extends React.Component {
       navigate(`/app/profile`)
     }
     return (
-            
-          <div className="divContainer">
+      <div className="divContainer">
             <img src={administrator} alt="Logo" className="imgAdmon" />
             <div className="divLogIn">
-              <h1 className="textLogIn">Inicio de sesion</h1>
+              <h1 className=""></h1>
             </div>
+            
             <form
               method="post"
               onSubmit={event => {
@@ -39,29 +39,31 @@ class Login extends React.Component {
                 navigate(`/app/login/profile`)
               }}
             >
-            <div>
-            
+            <div >
               <label>
-              <h6 className="textName">Usuario</h6>
-                <Input className="inputName"  type="text" name="username" onChange={this.handleUpdate}  placeholder="Nombre de usuario"/>
+              <h6 className="p-0 m-0 text-left">Usuario</h6>
+                <Input className="inputName"  
+                type="text" name="username" 
+                onChange={this.handleUpdate}  
+                placeholder="Nombre de usuario"/>
               </label>
             </div>
             <div>
-            
-              <label>
-              <h6 className="textPassword">Contraseña</h6>
-                <Input className="inputPassword my-5"
+              <label className="my-3">
+              <h6 className="p-0 m-0 text-left" >Contraseña</h6>
+                <Input className="inputPassword "
                   placeholder="Contraseña"
                   type="password"
                   name="password"
                   onChange={this.handleUpdate}
                 />
               </label>
-              
             </div>
                 <Input className="buttonLogIn p-0 m-0 mx-auto"  type="submit" value="Entrar" />
             </form>
+            
           </div>
+          
     )
   }
 }
