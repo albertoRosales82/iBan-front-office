@@ -1,13 +1,9 @@
 import React from 'react'
 import { navigate } from "gatsby"
 import { getLoan, setLoan, handleCreateLoan } from "../services/createLoanService"
-import Sidebar from "../components/sideBar"
-import Container from '@material-ui/core/Container'
-
-import styles from "./form.module.scss"
-import StylesForm from "./form.scss"
-
-import { Form, FormGroup, Input, FormFeedback } from "reactstrap"
+import "./createLoan.css"
+import createLoan from '../images/createLoan.png'
+import { Form, FormGroup, Input, FormFeedback,Label,Col,Row } from "reactstrap"
 
 class CrateLoan extends React.Component {
     loan = {
@@ -105,165 +101,248 @@ class CrateLoan extends React.Component {
 
         return (
             <>
-
-
-{/*                 <Container>
-                    <Sidebar />
-                </Container> */}
-
-                <h1>Crear Prestamo</h1>
-                {/* <form
-                            method="post"
-                            onSubmit={event => {
-                                this.handleSubmit(event)
-                                navigate(`/app/loanData`)
-                            }}> */}
-
-                <Form method="post"
-                    onSubmit={event => {
+                <Row>
+                    <Col>
+                <div className="formTitle" >
+                    
+                    <h3>Crear Prestamo</h3>
+                </div>
+                    <Form 
+                        method="post"
+                        onSubmit={event => {
                         this.handleSubmit(event)
                         navigate(`/app/loanData`)
                     }}>
-
-                    <FormGroup className={"d-lg-flex mb-0 mb-lg-0 py-0 py-lg-3 px-3 "}>
-                        <div className={styles.halfInput + " mr-lg-2"}>
+                    <FormGroup  className="backgroundform" >
+                        <Row>
+                            <Col md="6">
+                        <div>
+                        <p className="textInteres">
+                                Interes anual
+                        </p>
                             {/**annualInterest*/}
-                            <Input type="text" name="annualInterest" onChange={this.handleUpdate}
-                                cssModule={StylesForm}
-                                className={this.props.field && "blue"} required
+                            <Input className="inputInt" type="text" name="annualInterest" onChange={this.handleUpdate}
                                 id="annualInterest"
                                 placeholder="Interes anual"
                                 value="0.30" />
                             <FormFeedback>{this.state.errors.nombre.text}</FormFeedback>
-
                         </div>
-
-                        <div className={styles.halfInput + " ml-lg-2"}>
+                        </Col>
+                        <Col md={6}>
+                        <div>
                             {/**bank */}
-                            <label>
+                            <p className="textInteres" >
                                 Banco
-              <Input type="text" name="bank" onChange={this.handleUpdate} value="BBVA Bancomer" />
-                            </label>
-                            <label></label>
+                            </p>
+                                <Input className="inputInt"
+                                type="text" 
+                                name="bank" 
+                                onChange={this.handleUpdate} 
+                                value="BBVA Bancomer" />
                         </div>
-                    </FormGroup>
-                    {/**chargeAccount */}
-                    <label>
-                        Cuenta Cargo
-              <Input type="text" name="chargeAccount" onChange={this.handleUpdate} value="123456789" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**cvlCrm */}
-                    <label>
-                        CVL de CRM
-              <Input type="text" name="cvlCrm" onChange={this.handleUpdate} value="CVL0000001" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**formalzationDate */}
-                    <label>
-                        Fecha de formalizacion
-              <Input type="text" name="formalzationDate" onChange={this.handleUpdate} value="2020-01-31" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**originationScore */}
-                    <label>
-                        Score
-              <Input type="text" name="originationScore" onChange={this.handleUpdate} value="AAA" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**propertyLocation */}
-                    <label>
-                        Ubicacion de la propiedad
-              <Input type="text" name="propertyLocation" onChange={this.handleUpdate} value="MX" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**idCustomer */}
-                    <label>
-                        Numero de cliente
-              <Input type="text" name="idCustomer" onChange={this.handleUpdate} value="C000000001" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**loanAmount */}
-                    <label>
-                        Monto del prestamo
-              <Input type="text" name="loanAmount" onChange={this.handleUpdate} value="200000.00" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**guaranteeValue */}
-                    <label>
-                        Valor de la garantia
-              <Input type="text" name="guaranteeValue" onChange={this.handleUpdate} value="1500000.00" />
-                    </label>
-                    <label></label>
-                    <br></br>
-                    {/**notarialCharges*/}
-                    <label>
-                        Gastos notariales
-              <Input type="text" name="notarialCharges" onChange={this.handleUpdate} value="10000.00" />
-                    </label>
-                    <label></label>
-                    <br></br>
+                        </Col>
+                        <Col md="6">
+                            <div>
+                            {/**chargeAccount */}
+                            <p className="textInteres">
+                                Cuenta Cargo
+                            </p>
+                                <Input className="inputInt" type="text" 
+                                name="chargeAccount" 
+                                onChange={this.handleUpdate} 
+                                value="123456789" />
+                            </div>
+                        </Col>
+                        <Col md="6">
+                            <div>
+                            {/**cvlCrm */}
+                            <p className="textInteres">
+                                CVL de CRM
+                            </p>
+                                <Input className="inputInt" type="text"
+                                name="cvlCrm" 
+                                onChange={this.handleUpdate} 
+                                value="CVL0000001" />
+                            </div>
+                        </Col>
+                        <Col md="6">
+                            <div>
+                            {/**formalzationDate */}
+                            <p className="textInteres">
+                                Fecha de formalizacion
+                            </p>
+                            <Input className="inputInt" type="text" 
+                            name="formalzationDate" 
+                            onChange={this.handleUpdate} 
+                            value="2020-01-31" />
+                            </div>
+                        </Col>
+                        <Col>
+                    <div ms="6">
+                        {/**originationScore */}
+                        <p className="textInteres">
+                            Score
+                        </p>
+                            <Input className="inputInt" 
+                            type="text" 
+                            name="originationScore" 
+                            onChange={this.handleUpdate} 
+                            value="AAA" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                        <div>
+                        {/**propertyLocation */}
+                        <p className="textInteres">
+                            Ubicacion de la propiedad
+                        </p>
+                            <Input className="inputInt" 
+                            type="text" 
+                            name="propertyLocation" 
+                            onChange={this.handleUpdate} 
+                            value="MX" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                        <div>
+                        {/**idCustomer */}
+                        <p className="textInteres">
+                            Numero de cliente
+                        </p>
+                            <Input className="inputInt" type="text" 
+                            name="idCustomer" 
+                            onChange={this.handleUpdate} 
+                            value="C000000001" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                        <div>
+                        {/**loanAmount */}
+                        <p className="textInteres">
+                            Monto del prestamo
+                        </p>
+                            <Input className="inputInt" type="text" 
+                            name="loanAmount" 
+                            onChange={this.handleUpdate} 
+                            value="200000.00" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                        <div>
+                        {/**guaranteeValue */}
+                        <p className="textInteres">
+                            Valor de la garantia
+                            </p>
+                        <Input className="inputInt" type="text" 
+                        name="guaranteeValue" 
+                        onChange={this.handleUpdate} 
+                        value="1500000.00" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                        <div>
+                        {/**notarialCharges*/}
+                        <p className="textInteres">
+                            Gastos notariales
+                            </p>
+                            <Input className="inputInt" type="text" 
+                            name="notarialCharges" 
+                            onChange={this.handleUpdate} 
+                            value="10000.00" />
+                        </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**appraisalExpenses */}
-                    <label>
+                    <p className="textInteres">
                         Gastos de avaluo
-              <Input type="text" name="appraisalExpenses" onChange={this.handleUpdate} value="10000.00" />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                        <Input className="inputInt" type="text" 
+                        name="appraisalExpenses" 
+                        onChange={this.handleUpdate} 
+                        value="10000.00" />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**disbursedAmount */}
-                    <label>
-                        monto a desembolsar
-              <Input type="text" name="disbursedAmount" onChange={this.handleUpdate} value="180000.00" />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    <p className="textInteres">
+                    monto a desembolsar
+                    </p>
+                    <Input className="inputInt" type="text" 
+                    name="disbursedAmount" 
+                    onChange={this.handleUpdate} 
+                    value="180000.00" />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**idContractType */}
-                    <label>
+                    <p className="textInteres">
                         Tipo contrato
-              <Input type="text" name="idContractType" onChange={this.handleUpdate} value='1' />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                        <Input className="inputInt" type="text" 
+                        name="idContractType" 
+                        onChange={this.handleUpdate} 
+                        value='1' />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**idLoanOriginator */}
-                    <label>
+                    <p className="textInteres">
                         Loan Originator
-              <Input type="text" name="idLoanOriginator" onChange={this.handleUpdate} value='1' />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                    <Input className="inputInt" type="text" 
+                    name="idLoanOriginator" 
+                    onChange={this.handleUpdate} 
+                    value='1' />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**idLoanType */}
-                    <label>
+                    <p className="textInteres">
                         Tipo Prestamo
-              <Input type="text" name="idLoanType" onChange={this.handleUpdate} value='1' />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                    <Input className="inputInt" type="text" 
+                    name="idLoanType" 
+                    onChange={this.handleUpdate}
+                    value='1' />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**idTerm */}
-                    <label>
+                    <p className="textInteres">
                         Plazo Id
-              <Input type="text" name="idTerm" onChange={this.handleUpdate} value="1" />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                    <Input className="inputInt" type="text"
+                    name="idTerm" 
+                    onChange={this.handleUpdate} 
+                    value="1" />
+                    </div>
+                    </Col>
+                    <Col md="6">
+                    <div>
                     {/**paymentsNumber */}
-                    <label>
+                    <p className="textInteres">
                         Plazo
-              <Input type="text" name="paymentsNumber" onChange={this.handleUpdate} value='72' />
-                    </label>
-                    <label></label>
-                    <br></br>
+                    </p>
+                    <Input className="inputInt" type="text" 
+                    name="paymentsNumber" 
+                    onChange={this.handleUpdate} 
+                    value='72' />
+                    </div>
+                    </Col>
+                    <div className="mx-auto">
                     <Input type="submit" value="Crear Prestamo" />
-                    <br></br>
-
+                    </div>
+                    </Row>
+                    </FormGroup>
                 </Form>
-
+                </Col>
+                </Row>
             </>
         )
     }
