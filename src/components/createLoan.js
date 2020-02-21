@@ -6,7 +6,14 @@ import createLoan from '../images/createLoan.png'
 import { Form, FormGroup, Input, FormFeedback,Label,Col,Row } from "reactstrap"
 
 class CrateLoan extends React.Component {
-    loan = {
+    constructor(props){
+        super(props)
+        this.state={value:''};
+
+        this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    /*loan = {
         'annualInterest': '0.30',
         'bank': 'BBVA Bancomer',
         'chargeAccount': '123456789',
@@ -38,54 +45,42 @@ class CrateLoan extends React.Component {
             'idTerm': '1',
             'paymentsNumber': '72'
         }
-    }
+    }*/
 
     state = {
-        nombre: "",
-        apellido: "",
-        telefono: "",
-        email: "",
-        calle: "",
-        numExt: "",
-        colonia: "",
-        cp: "",
-        validator: false,
-        errors: {
-            nombre: {
-                value: false,
-                text: "",
-            },
-            apellido: {
-                value: false,
-                text: "",
-            },
-            telefono: {
-                value: false,
-                text: "",
-            },
-            email: {
-                value: false,
-                text: "",
-            },
-            calle: {
-                value: false,
-                text: "",
-            },
-            numExt: {
-                value: false,
-                text: "",
-            },
-            colonia: {
-                value: false,
-                text: "",
-            },
-            cp: {
-                value: false,
-                text: "",
-            },
+        loan:{
+        interesAnual: "",
+        bank:"",
+        chargeAccount:"",
+        cvlCrm:"",
+        formalzationDate:"",
+        originationScore:"",
+        propertyLocation:"",
+        customers:{
+            idCustomer: ''
+        },
+        loanConditions:[{
+            loanAmount: '',
+            guaranteeValue: '',
+            notarialCharges: '',
+            appraisalExpenses: '',
+            disbursedAmount: ''
+        }],
+        contractTypes:{
+            idContractType: ''
+        },
+        loanOriginators: {
+            idLoanOriginator: ''
+        },
+        loanTypes: {
+            idLoanType: ''
+        },
+        terms: {
+            idTerm: '',
+            paymentsNumber: ''
         },
     }
-
+    }
     handleUpdate = event => {
         setLoan({
             [event.target.name]: event.target.value,
@@ -98,9 +93,8 @@ class CrateLoan extends React.Component {
     }
 
     render() {
-
         return (
-            <>
+            <> 
                 <Row className="p-0 m-0 mx-auto" >
                     <Col  className=" d-flex justify-content-center flex-column">
                 <div className="formTitle" >
@@ -121,11 +115,15 @@ class CrateLoan extends React.Component {
                                 Interes anual
                         </p>
                             {/**annualInterest*/}
-                            <Input className="inputInt" type="text" name="annualInterest" onChange={this.handleUpdate}
+                            <Input 
+                                className="inputInt" 
+                                type="text" 
+                                name="annualInterest"
                                 id="annualInterest"
                                 placeholder="Interes anual"
-                                value="0.30" />
-                            <FormFeedback>{this.state.errors.nombre.text}</FormFeedback>
+                                value={this.state.interesAnual} 
+                                onChange={this.handleUpdate}
+                                />
                         </div>
                         </Col>
                         <Col md={6}>
@@ -134,11 +132,15 @@ class CrateLoan extends React.Component {
                             <p className="textInteres" >
                                 Banco
                             </p>
-                                <Input className="inputInt"
+                                <Input
+                                className="inputInt"
                                 type="text" 
-                                name="bank" 
-                                onChange={this.handleUpdate} 
-                                value="BBVA Bancomer" />
+                                name="bank"
+                                id="bank"
+                                placeholder="Banco"
+                                value={this.state.bank}
+                                onChange={this.handleUpdate}
+                                />
                         </div>
                         </Col>
                         <Col md="6">
@@ -147,10 +149,15 @@ class CrateLoan extends React.Component {
                             <p className="textInteres">
                                 Cuenta Cargo
                             </p>
-                                <Input className="inputInt" type="text" 
-                                name="chargeAccount" 
-                                onChange={this.handleUpdate} 
-                                value="123456789" />
+                                <Input 
+                                className="inputInt" 
+                                type="text" 
+                                name="chargeAccount"
+                                id="chargeAccount"
+                                placeholder="Cuenta cargo"
+                                value={this.state.chargeAccount}
+                                onChange={this.handleUpdate}
+                                />
                             </div>
                         </Col>
                         <Col md="6">
@@ -159,10 +166,14 @@ class CrateLoan extends React.Component {
                             <p className="textInteres">
                                 CVL de CRM
                             </p>
-                                <Input className="inputInt" type="text"
+                                <Input 
+                                className="inputInt" 
+                                type="text"
                                 name="cvlCrm" 
-                                onChange={this.handleUpdate} 
-                                value="CVL0000001" />
+                                id="cvlCrm"
+                                placeholder="CVL del CRM"
+                                value={this.state.cvlCrm}
+                                onChange={this.handleUpdate}/>
                             </div>
                         </Col>
                         <Col md="6">
@@ -171,10 +182,14 @@ class CrateLoan extends React.Component {
                             <p className="textInteres">
                                 Fecha de formalizacion
                             </p>
-                            <Input className="inputInt" type="text" 
-                            name="formalzationDate" 
+                            <Input 
+                            className="inputInt" 
+                            type="text" 
+                            name="formalzationDate"
+                            id="formalzationDate"
+                            value={this.state.formalzationDate}
                             onChange={this.handleUpdate} 
-                            value="2020-01-31" />
+                            placeholder="dd-mm-yyyy"/>
                             </div>
                         </Col>
                         <Col>
@@ -183,11 +198,15 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Score
                         </p>
-                            <Input className="inputInt" 
+                            <Input 
+                            className="inputInt" 
                             type="text" 
-                            name="originationScore" 
-                            onChange={this.handleUpdate} 
-                            value="AAA" />
+                            name="originationScore"
+                            id="originationScore"
+                            value={this.state.originationScore}
+                            onChange={this.handleUpdate}
+                            placeholder="Score"
+                            />
                         </div>
                     </Col>
                     <Col md="6">
@@ -196,11 +215,15 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Ubicacion de la propiedad
                         </p>
-                            <Input className="inputInt" 
+                            <Input 
+                            className="inputInt" 
                             type="text" 
                             name="propertyLocation" 
+                            id="propertyLocation"
+                            value={this.state.propertyLocation}
                             onChange={this.handleUpdate} 
-                            value="MX" />
+                            placeholder="Ubicacion de la propiedad"
+                            />
                         </div>
                     </Col>
                     <Col md="6">
@@ -209,10 +232,15 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Numero de cliente
                         </p>
-                            <Input className="inputInt" type="text" 
-                            name="idCustomer" 
-                            onChange={this.handleUpdate} 
-                            value="C000000001" />
+                            <Input 
+                            className="inputInt" 
+                            type="text" 
+                            name="idCustomer"
+                            id="idCustomer" 
+                            value={this.state.idCustomer}
+                            onChange={this.handleUpdate}
+                            placeholder="Numero de cliente"
+                            />
                         </div>
                     </Col>
                     <Col md="6">
@@ -221,10 +249,14 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Monto del prestamo
                         </p>
-                            <Input className="inputInt" type="text" 
-                            name="loanAmount" 
+                            <Input 
+                            className="inputInt" 
+                            type="text" 
+                            name="loanAmount"
+                            id="loanAmount"
+                            value={this.state.loanAmount}
                             onChange={this.handleUpdate} 
-                            value="200000.00" />
+                            placeholder="Monto del prestamo" />
                         </div>
                     </Col>
                     <Col md="6">
@@ -233,10 +265,14 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Valor de la garantia
                             </p>
-                        <Input className="inputInt" type="text" 
-                        name="guaranteeValue" 
+                        <Input 
+                        className="inputInt" 
+                        type="text" 
+                        name="guaranteeValue"
+                        id="guaranteeValue"
+                        value={this.state.guaranteeValue}
                         onChange={this.handleUpdate} 
-                        value="1500000.00" />
+                        placeholder="Valor de la garantia" />
                         </div>
                     </Col>
                     <Col md="6">
@@ -245,10 +281,14 @@ class CrateLoan extends React.Component {
                         <p className="textInteres">
                             Gastos notariales
                             </p>
-                            <Input className="inputInt" type="text" 
-                            name="notarialCharges" 
+                            <Input 
+                            className="inputInt" 
+                            type="text" 
+                            name="notarialCharges"
+                            id="notarialCharges"
+                            value={this.state.notarialCharges}
                             onChange={this.handleUpdate} 
-                            value="10000.00" />
+                            placeholder="Gastos notariales" />
                         </div>
                     </Col>
                     <Col md="6">
@@ -257,22 +297,30 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Gastos de avaluo
                     </p>
-                        <Input className="inputInt" type="text" 
-                        name="appraisalExpenses" 
+                        <Input 
+                        className="inputInt" 
+                        type="text" 
+                        name="appraisalExpenses"
+                        id="appraisalExpenses"
+                        value={this.state.appraisalExpenses}
                         onChange={this.handleUpdate} 
-                        value="10000.00" />
+                        placeholder="Gastos de avaluo" />
                     </div>
                     </Col>
                     <Col md="6">
                     <div>
                     {/**disbursedAmount */}
                     <p className="textInteres">
-                    monto a desembolsar
+                    Monto a desembolsar
                     </p>
-                    <Input className="inputInt" type="text" 
-                    name="disbursedAmount" 
+                    <Input 
+                    className="inputInt" 
+                    type="text" 
+                    name="disbursedAmount"
+                    id="disbursedAmount"
+                    value={this.state.disbursedAmount}
                     onChange={this.handleUpdate} 
-                    value="180000.00" />
+                    placeholder="Monto a Desembolsar" />
                     </div>
                     </Col>
                     <Col md="6">
@@ -281,10 +329,14 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Tipo contrato
                     </p>
-                        <Input className="inputInt" type="text" 
-                        name="idContractType" 
+                        <Input 
+                        className="inputInt" 
+                        type="text" 
+                        name="idContractType"
+                        id="idContractType"
+                        value={this.state.idContractType}
                         onChange={this.handleUpdate} 
-                        value='1' />
+                        placeholder='Tipo de contrato' />
                     </div>
                     </Col>
                     <Col md="6">
@@ -293,10 +345,15 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Loan Originator
                     </p>
-                    <Input className="inputInt" type="text" 
-                    name="idLoanOriginator" 
+                    <Input 
+                    className="inputInt" 
+                    type="text" 
+                    name="idLoanOriginator"
+                    id="idLoanOriginator"
+                    value={this.state.idLoanOriginator} 
                     onChange={this.handleUpdate} 
-                    value='1' />
+                    placeholder='Loan Originator'
+                    />
                     </div>
                     </Col>
                     <Col md="6">
@@ -305,10 +362,14 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Tipo Prestamo
                     </p>
-                    <Input className="inputInt" type="text" 
-                    name="idLoanType" 
+                    <Input 
+                    className="inputInt" 
+                    type="text" 
+                    name="idLoanType"
+                    id="idLoanType" 
+                    value={this.state.idLoanType}
                     onChange={this.handleUpdate}
-                    value='1' />
+                    placeholder='Tipo de Prestamo' />
                     </div>
                     </Col>
                     <Col md="6">
@@ -317,10 +378,14 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Plazo Id
                     </p>
-                    <Input className="inputInt" type="text"
-                    name="idTerm" 
+                    <Input 
+                    className="inputInt" 
+                    type="text"
+                    name="idTerm"
+                    id="idTerm"
+                    value={this.state.idTerm}
                     onChange={this.handleUpdate} 
-                    value="1" />
+                    placeholder="Plazo Id" />
                     </div>
                     </Col>
                     <Col md="6">
@@ -329,10 +394,14 @@ class CrateLoan extends React.Component {
                     <p className="textInteres">
                         Plazo
                     </p>
-                    <Input className="inputInt" type="text" 
-                    name="paymentsNumber" 
+                    <Input 
+                    className="inputInt" 
+                    type="text" 
+                    name="paymentsNumber"
+                    id="paymentsNumber"
+                    value={this.state.paymentsNumber} 
                     onChange={this.handleUpdate} 
-                    value='72' />
+                    placeholder='Plazo' />
                     </div>
                     </Col>
                             <div className="divBtnCrearPrestamo">
