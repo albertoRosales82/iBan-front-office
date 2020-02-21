@@ -46,9 +46,7 @@ export default function LoanFees(){
                     <br></br>
             </Form>
 {/**--------------------------TABLE------------------------- */}
-
 <div id="tableContainerId">
-
 </div>
 {/**--------------------------TABLE------------------------- */}
             </>
