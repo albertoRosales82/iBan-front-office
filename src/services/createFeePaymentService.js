@@ -27,6 +27,7 @@ export const handleCreateFeePayment = (idLoan, idFee, amount) => {
                     } else {
                         response.json().then(function (createdFeePayment) {
                             console.log(createdFeePayment);
+                            window.location.reload();
                         });
                     }
                 }
